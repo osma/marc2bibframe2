@@ -2271,16 +2271,16 @@
                 </bf:carrier>
               </xsl:if>
             </xsl:if>
-             <xsl:if test="$videoFormatURI != '' and count(../marc:datafield[@tag='346']/marc:subfield[. = $videoFormat]) = 0">
-               <bf:videoCharacteristic>
-                 <bf:VideoFormat>
-                    <xsl:if test="$videoFormatURI != ' '">
+            <xsl:if test="$videoFormat != '' and count(../marc:datafield[@tag='346']/marc:subfield[. = $videoFormat]) = 0">
+              <bf:videoCharacteristic>
+                <bf:VideoFormat>
+                  <xsl:if test="$videoFormatURI != ''">
                       <xsl:attribute name="rdf:about"><xsl:value-of select="$videoFormatURI"/></xsl:attribute>
-                    </xsl:if>
-                 </bf:VideoFormat>
-               </bf:videoCharacteristic>
-              </xsl:if>
-                 <rdfs:label><xsl:value-of select="$videoFormat"/></rdfs:label>
+                  </xsl:if>
+                  <rdfs:label><xsl:value-of select="$videoFormat"/></rdfs:label>
+                </bf:VideoFormat>
+              </bf:videoCharacteristic>
+            </xsl:if>
             <xsl:if test="$vEncodingFormat != '' and count(../marc:datafield[@tag='347']/marc:subfield[. = $vEncodingFormat]) = 0">
               <bf:digitalCharacteristic>
                 <bf:EncodingFormat>
