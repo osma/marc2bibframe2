@@ -225,6 +225,12 @@
     <x:expect label="$b creates a temporalCoverage property of the Work" test="//bf:Work/bf:temporalCoverage[2] = '-0221/0960'"/>
   </x:scenario>
   
+  <x:scenario label="046 - SPECIAL CODED DATES">
+    <x:context href="data/ConvSpec-010-048/marc.xml"/>
+    <x:expect label="$k creates an originDate property of the Work" test="//bf:Work/bf:originDate[1] = '2020'"/>
+    <x:expect label="$l creates an originDate property of the Work" test="//bf:Work/bf:originDate[2] = '2021'"/>
+  </x:scenario>
+  
   <x:scenario label="047 - FORM OF MUSICAL COMPOSITION CODE">
     <x:context href="data/ConvSpec-010-048/marc.xml"/>
     <x:expect label="047 creates a genreForm property of the Work" test="//bf:Work/bf:genreForm[3]/bf:GenreForm/bf:code = 'rgg'"/>

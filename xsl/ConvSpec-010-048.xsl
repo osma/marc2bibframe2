@@ -785,6 +785,31 @@
     </xsl:choose>
   </xsl:template>
 
+  <!-- new addition to convert 046 field (not complete) -->
+  <xsl:template match="marc:datafield[@tag='046' or (@tag='880' and substring(marc:subfield[@code='6'],1,3)='046')]" mode="work">
+    <xsl:param name="serialization" select="'rdfxml'"/>
+    <xsl:choose>
+      <xsl:when test="$serialization = 'rdfxml'">
+        <xsl:for-each select="marc:subfield[@code='k']">
+          <bf:originDate>
+            <xsl:attribute name="rdf:datatype"><xsl:value-of select="$edtf"/>edtf</xsl:attribute>
+            <xsl:value-of select="."/>
+          </bf:originDate>
+        </xsl:for-each>
+      </xsl:when>
+    </xsl:choose>
+    <xsl:choose>
+      <xsl:when test="$serialization = 'rdfxml'">
+        <xsl:for-each select="marc:subfield[@code='l']">
+          <bf:originDate>
+            <xsl:attribute name="rdf:datatype"><xsl:value-of select="$edtf"/>edtf</xsl:attribute>
+            <xsl:value-of select="."/>
+          </bf:originDate>
+        </xsl:for-each>
+      </xsl:when>
+    </xsl:choose>
+  </xsl:template>
+  
   <xsl:template match="marc:datafield[@tag='047' or (@tag='880' and substring(marc:subfield[@code='6'],1,3)='047')]" mode="work">
     <xsl:param name="serialization" select="'rdfxml'"/>
     <xsl:choose>
