@@ -10,7 +10,7 @@
                 xmlns:date="http://exslt.org/dates-and-times"
                 xmlns:lclocal="http://id.loc.gov/ontologies/lclocal/"
                 extension-element-prefixes="date"
-                exclude-result-prefixes="xsl marc">
+                exclude-result-prefixes="xsl marc date exslt">
 
   <xsl:output encoding="UTF-8" method="xml" indent="yes"/>
   <xsl:strip-space elements="*"/>
@@ -52,9 +52,11 @@
   -->
   <xsl:param name="pGenerationDatestamp">
     <xsl:choose>
+      <!--
       <xsl:when test="function-available('date:date-time')">
         <xsl:value-of select="date:date-time()"/>
       </xsl:when>
+      -->
       <xsl:when test="function-available('current-dateTime')">
         <xsl:value-of select="current-dateTime()"/>
       </xsl:when>
