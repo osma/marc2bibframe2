@@ -10,7 +10,7 @@
                 xmlns:date="http://exslt.org/dates-and-times"
                 xmlns:lclocal="http://id.loc.gov/ontologies/lclocal/"
                 extension-element-prefixes="date"
-                exclude-result-prefixes="xsl marc date exslt">
+                exclude-result-prefixes="xsl marc date">
 
   <xsl:output encoding="UTF-8" method="xml" indent="yes"/>
   <xsl:strip-space elements="*"/>
